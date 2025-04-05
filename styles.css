@@ -1,0 +1,318 @@
+/* General Styling */
+body {
+    font-family: 'Arial', sans-serif;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+    margin: 0;
+    padding: 0;
+    position: relative;
+    color: white;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding-top: 80px;
+}
+
+/* Ensure content takes up space and pushes footer down */
+.main-content {
+    flex: 1;
+    padding: 20px;
+    width: 100%;
+}
+
+/* Custom Cursor Styling */
+.cursor {
+    width: 10px;
+    height: 10px;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: transform 0.1s ease-out;
+}
+
+/* Header Styling */
+header {
+    background: transparent;
+    padding: 20px;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    transition: top 0.5s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    transform: rotateY(0);
+    
+}
+#appointmentForm {
+    position: relative;
+    z-index: 900; /* Keeps form above background */
+    background: rgba(54, 54, 54, 0.498); /* Semi-transparent background */
+    padding: 20px;
+    border-radius: 8px;
+    transition: opacity 0.5s ease, transform 0.5s ease;
+    margin-top: 20px; /* Prevent overlap */
+}
+
+/* Logo Styling */
+/* Logo Styling */
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    background-color: #41414684; /* Dark background */
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(158, 184, 220, 0.2);
+}
+
+.logo img {
+    width: 50px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 50%; /* Makes it circular */
+}
+
+.logo span {
+    font-size: 40px;
+    font-weight: bold;
+    color: #ffffff; /* White text */
+}
+
+.logo span b {
+    color: #00c9a7; /* Highlight color */
+}
+
+/* Navigation Styling */
+nav {
+    flex-grow: 1;
+    text-align: right;
+   
+}
+
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+}
+
+nav ul li a {
+    color: rgb(59, 8, 245);
+    text-decoration: none;
+    font-weight: bold;
+    padding: 10px 15px;
+    border: 2px solid rgb(59, 8, 245);
+    border-radius: 5px;
+    transition: all 0.3s ease-in-out;
+}
+
+nav ul li a:hover {
+    background: rgb(35, 155, 247);
+    color: white;
+    box-shadow: 0 0 10px rgba(59, 8, 245, 0.8);
+}
+
+/* Responsive Navigation Button */
+.menu-button {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    padding: 10px;
+}
+table {
+    width: 600%;
+    max-width: 800px;
+    margin: 20px auto;
+    border-collapse: collapse;
+    background: rgba(108, 62, 245, 0.221);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+th, td {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    text-align: center;
+}
+th {
+    background: #0eccbcfd;
+    color: rgb(243, 246, 247);
+    }
+    td {
+        color: #373535;
+        }
+       
+
+
+@media screen and (max-width: 768px) {
+    header {
+        flex-direction: column;
+        text-align: center;
+    }
+    
+    .logo {
+        margin: 10px 0;
+    }
+    
+    .menu-button {
+        display: block;
+        align-self: flex-end;
+        margin-right: 20px;
+    }
+    
+    nav {
+        text-align: center;
+        width: 100%;
+        display: none;
+    }
+    
+    nav ul {
+        flex-direction: column;
+        padding: 0;
+    }
+    
+    nav ul li {
+        display: block;
+        margin: 10px 0;
+    }
+    
+    nav.active {
+        display: block;
+    }
+}
+
+/* Hide header on scroll down, show on scroll up */
+.hidden-header {
+    top: -80px;
+}
+
+header h1 {
+    color: white;
+    margin: 0;
+}
+
+/* Adjust body padding to prevent header overlap */
+body {
+    padding-top: 80px;
+}
+
+/* Background Video */
+#background-video {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    transform: translate(-50%, -50%);
+    z-index: -1;
+}
+
+/* Title Styling */
+h2 {
+    text-align: center;
+    color: #0101fd;
+    font-size: 2rem;
+}
+
+/* Form Styling */
+form {
+    max-width: 500px;
+    width: 90%;
+    margin: auto;
+    padding: 25px;
+    background: rgba(0, 0, 0, 0.8);
+    border-radius: 10px;
+    box-shadow: 0px 4px 15px rgba(255, 255, 255, 0.2);
+    transition: transform 0.3s ease-in-out;
+}
+
+form:hover {
+    transform: scale(1.02);
+}
+
+/* Labels */
+label {
+    font-weight: bold;
+    display: block;
+    margin: 20px 0 5px;
+    color: #f1f1f1;
+}
+
+/* Input Fields */
+input, select, textarea {
+    width: 90%;
+    padding: 12px;
+    margin-top: 5px;
+    border: 2px solid #0d6dfd4c;
+    border-radius: 5px;
+    font-size: 1em;
+    background: #1e1e1eb3;
+    color: white;
+}
+
+input:focus, select:focus, textarea:focus {
+    border-color: #00ffcc;
+    outline: none;
+    box-shadow: 0 0 8px rgba(0, 255, 204, 0.8);
+}
+
+/* Button Styling */
+button {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(180deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    font-size: 1.2em;
+    font-weight: bold;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 15px;
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.2s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 123, 255, 0.8);
+}
+
+/* Footer Styling */
+footer {
+    width: 100%;
+    background: rgba(34, 34, 34, 0.358);
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    position: relative;
+    margin-top: auto;
+}
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 100px;
+    transition: all 0.2s ease-in-out;
+}

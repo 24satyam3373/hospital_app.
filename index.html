@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment Booking</title>
+    <link rel="stylesheet" href="styles.css"> <!-- Link to CSS file -->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+</head>
+
+<body>
+
+    <!-- Header Section -->
+    <header>
+        <div class="logo">
+            <img src="logo.jpg" alt="Clinic Logo">
+            <span><B>L</B>ife <B>C</B>are <B>H</B>ospital</span>
+            
+        </div>
+        <nav>
+            <ul>
+                <li><a href="#appointmentForm">Book Appointment</a></li>
+                <li><a href="#summaryTable">View Appointments</a></li>
+                <li><a href="#contact">Contact Us</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video">
+        <source src="hos (1).mp4" type="video/mp4">
+        Your browser does not support HTML5 video.
+    </video>
+
+    <h2>Book Your Appointment</h2>
+    <form id="appointmentForm">
+        <fieldset>
+            <legend>Patient Details</legend>
+            <label for="name">Full Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Enter your name">
+
+            <label for="email">Email Address:</label>
+            <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+            <label for="phone">Phone Number:</label>
+            <input type="tel" id="phone" name="phone" pattern="[0-9]{10}" placeholder="Enter 10-digit number" required>
+
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" min="0" placeholder="Enter your age" required>
+
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+            <option value="">Select your gender</option>
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Other">Other</option>
+</select>
+
+        </fieldset>
+
+        <label for="doctor">Choose a Doctor:</label>
+        <select id="doctor" name="doctor" required>
+            <option value="">-- Select Doctor --</option>
+            <option value="Dr. Ram pal">Dr. Ram pal</option>
+            <option value="Dr. shreya goal">Dr. shreya goal</option>
+            <option value="Dr. Hare ram singh">Hare ram singh</option>
+            <option value="Dr. Deepak singh ">Dr. Deepak singh</option>
+            <option value="Dr. Sunita kumari">Dr. Sunita kumari</option>
+        </select>
+
+        <label for="appointmentType">Appointment Type:</label>
+        <select id="appointmentType" name="appointmentType" required>
+            <option value="">-- Select Type --</option>
+            <option value="General Checkup">General Checkup</option>
+            <option value="Follow-up">Follow-up</option>
+            <option value="Specialist Consultation">Specialist Consultation</option>
+            <option value="Emergency Appointment"> Emergency Appointment</option>
+            <option value=" AppointmentTelemedicine"> AppointmentTelemedicine</option>
+            <option value="Pre-Surgery Appointment"> Pre-Surgery Appointment</option>
+            <option value="Laboratory/Diagnostic Appointment"> Laboratory/Diagnostic Appointment</option>
+            <option value="Walk-In Appointment"> Walk-In Appointment</option>
+
+        </select>
+        <label for="department">Department: </label>
+        <select id="department" name="department" required>
+            <option value="">-- Select Type --</option>
+            <option value="Emergency Department (ED) / Accident and Emergency (A&E)">Emergency Department (ED) / Accident and Emergency (A&E):</option>
+            <option value="Internal Medicine">Internal Medicine</option>
+            <option value="Pediatrics">Pediatrics:</option>
+            <option value="Orthopedics">Orthopedics</option>
+            <option value="Cardiology">Cardiology:</option>
+            <option value="Neurology">Neurology:</option>
+            <option value="Obstetrics and Gynecology (OB/GYN)">Obstetrics and Gynecology (OB/GYN)</option>
+            <option value="Radiology">Radiology </option>
+
+        </select>
+
+        <label for="date">Select Date:</label>
+        <input type="date" id="date" name="date" required>
+
+        <label for="time">Select Time:</label>
+        <input type="time" id="time" name="time" required>
+
+
+        <label for="medicalInfo">Medical History / Symptoms:</label>
+        <textarea id="medicalInfo" name="medicalInfo" rows="4" placeholder="Describe your symptoms or medical history"></textarea>
+
+        <label for="fileUpload">Upload Pre-Treatment Documents:</label>
+        <input type="file" id="fileUpload" name="fileUpload" accept=".pdf,.docx,.jpg,.jpeg,.png" />
+
+        <label>Preferred Language:</label>
+        <div>
+            <input type="radio" id="english" name="language" value="English" checked>
+            <label for="english">English</label>
+            <input type="radio" id="Hindi" name="language" value="Hindi">
+            <label for="Hindi">Hindi</label>
+        </div>
+
+        <button type="submit">Confirm Appointment</button>
+    </form>
+
+    <h2>All Appointment Summaries</h2>
+    <table id="summaryTable">
+        <tr>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Phone</th>
+            <th>AGE</th>
+            <th>Gender</th>
+            <th>Doctor</th>
+            <th>Type</th>
+            <th>Department</th>
+            <th>Date</th>
+            <th>Time</th>
+            <th>Medical Info</th>
+            <th>Language</th>
+            <th>File</th>
+
+        </tr>
+    </table>
+
+    <!-- Footer Section -->
+
+    <footer id="contact">
+        <p>Contact Us: +91620546328 | Email: support@clinic.com</p>
+        <div class="social-icons">
+            <a href="#"><i class='bx bxl-facebook-circle' ></i></a>
+            <a href="#"><i class='bx bxl-whatsapp' ></i></a>
+            <a href="#"><i class='bx bxl-instagram' ></i></a>
+        </div>
+        <p>&copy; 2025 Life Care. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        document.getElementById("appointmentForm").addEventListener("submit", function (event) {
+            event.preventDefault();
+            
+            // Get values from form inputs
+            const name = document.getElementById("name").value;
+            const email = document.getElementById("email").value;
+            const phone = document.getElementById("phone").value;
+            const AGE = document.getElementById("age").value;  // Corrected ID for age
+            const Gender = document.getElementById("gender").value;  // Corrected ID for gender
+            const doctor = document.getElementById("doctor").value;
+            const appointmentType = document.getElementById("appointmentType").value;
+            const date = document.getElementById("date").value;
+            const time = document.getElementById("time").value;
+            const medicalInfo = document.getElementById("medicalInfo").value;
+            
+            // Get the selected language value (assuming you have radio buttons for languages)
+            const language = document.querySelector('input[name="language"]:checked') ? document.querySelector('input[name="language"]:checked').value : '';
+        
+            // Assuming you have a department input field, if not, adjust accordingly
+            const department = document.getElementById("department").value;
+            
+            // Handle file upload and display the file name
+            const fileInput = document.getElementById("fileUpload");
+            const fileName = fileInput.files.length > 0 ? fileInput.files[0].name : "No file uploaded"; // Display the file name or "No file uploaded"
+        
+            // Add a new row to the table with the collected data
+            const table = document.getElementById("summaryTable");
+            const newRow = table.insertRow();
+            newRow.innerHTML = `
+                <td>${name}</td>
+                <td>${email}</td>
+                <td>${phone}</td>
+                <td>${AGE}</td>
+                <td>${Gender}</td>
+                <td>${doctor}</td>
+                <td>${appointmentType}</td>
+                <td>${department}</td>
+                <td>${date}</td>
+                <td>${time}</td>
+                <td>${medicalInfo}</td>
+                <td>${language}</td>
+                <td>${fileName}</td> <!-- Add the file name to the table -->
+            `;
+            
+            // Reset the form after submission
+            document.getElementById("appointmentForm").reset();
+        });
+    </script>
+    
+    
+    
+    </script>
+
+    <script src="MAIN.JS"></script>
+
+
+</body>
+
+</html>
